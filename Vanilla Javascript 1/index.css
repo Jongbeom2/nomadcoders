@@ -1,0 +1,12 @@
+body{
+  background-color:peru;
+}
+h1{
+  color: blue;
+}
+.clicked{
+  color:red;
+}
+.btn{
+  cursor:pointer;
+}
