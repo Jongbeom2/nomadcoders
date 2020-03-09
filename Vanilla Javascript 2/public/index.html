@@ -12,13 +12,13 @@
     <div class="controls">
       <div class="controls__size">
         <div class = "text">Width :</div>
-        <input class = "controls__width" type="text" id="jsWidth" value="500"/>
+        <input class = "controls__width" type="number" id="jsWidth" value="600"/>
         <div class = "text">Height :</div>
-        <input class = "controls__height" type="text" id="jsHeight" value="600"/>
+        <input class = "controls__height" type="number" id="jsHeight" value="500"/>
         <button id="jsResize">Resize</button>
       </div>
     </div>
-    <div id="canvas">
+    <div class="content">
       <canvas id="jsCanvas" class="canvas"></canvas>
     </div>
     <div class="controls">
@@ -40,7 +40,7 @@
         <div class="controls__color jsColor" style="background-color: #5ac8fa"></div>
         <div class="controls__color jsColor" style="background-color: #0579FF"></div>
         <div class="controls__color jsColor" style="background-color: #5856D6"></div>
-        <label for="jsMyColorControl"><div class="controls__color jsColor jsMyColor" style="background-color: white">My</div></label>
+        <label for="jsMyColorControl"><div class="controls__color jsColor" id = "jsMyColor" style="background-color: white">My</div></label>
         <input type="color" id="jsMyColorControl" name="jsMyColorControl" value="#ffffff" style="display:none">
       </div>
     </div>
