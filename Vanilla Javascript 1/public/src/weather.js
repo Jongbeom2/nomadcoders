@@ -1,8 +1,9 @@
+const COORDS = "coords";
+const API_KEY = "XXXXXXXXXXXXXXXXXXXXXXXX";
+
 const weather = document.querySelector('.js-weather');
 
-const COORDS = "coords";
-const API_KEY = "1290da96c46b6b79b50682f3b179bc2c";
-
+// get weather from openweathermap with lat and lon
 function getWeather(lat, lon){
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
@@ -14,11 +15,7 @@ function getWeather(lat, lon){
     weather.innerText = `기온 ${temperature} 도 @ ${place}`;
   })
 }
-
-function saveCoords(coordsObj){
-  localStorage.setItem(COORDS,JSON.stringify(coordsObj));
-}
-
+// save coords from position
 function handleGeoSuccess(position){
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
@@ -26,15 +23,17 @@ function handleGeoSuccess(position){
     latitude,
     longitude,
   };
-  saveCoords(coordsObj);
+  localStorage.setItem(COORDS,JSON.stringify(coordsObj));
 }
+// handle error
 function handleGeoError(error){
   console.log(error);
 }
-
+// get position from navigator
 function askForCoords(){
   navigator.geolocation.getCurrentPosition(handleGeoSuccess,handleGeoError);
 }
+// load coords
 function loadCoords(){
   const loadedCoords = localStorage.getItem(COORDS);
   if (loadedCoords === null){
@@ -44,6 +43,7 @@ function loadCoords(){
     getWeather(parseCoords.latitude, parseCoords.longitude);
   }
 }
+// init
 function init(){
   loadCoords();
 }
