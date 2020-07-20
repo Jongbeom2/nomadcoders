@@ -1,4 +1,4 @@
-# Booking Event
+# Painter
 그림판 애플리케이션
 
 ## 기능
